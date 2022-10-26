@@ -1,0 +1,71 @@
+[package]
+name = "pepegsitter"
+description = "Collection of Tree-Sitter parsers"
+repository = "https://github.com/Dav1dde/PepegSitter"
+version = "0.1.0"
+authors = ["David Herberth <github@dav1d.de>"]
+edition = "2021"
+license = "MIT"
+build = "build.rs"
+
+include = [
+    "**/*.rs",
+    "Cargo.toml",
+    "sitters/tree-sitter-*/*.js",
+    "sitters/tree-sitter-*/queries/*.scm",
+    "sitters/tree-sitter-*/**/*.c",
+    "sitters/tree-sitter-*/**/*.h",
+    "sitters/tree-sitter-*/**/src/*.cc",
+    "sitters/tree-sitter-*/**/src/*.json",
+]
+
+[features]
+default = [
+    "bash",
+    "c",
+    "cpp",
+    "css",
+    "d",
+    "go",
+    "haskell",
+    "html",
+    "java",
+    "javascript",
+    "json",
+    "lua",
+    "python",
+    "rust",
+    "toml",
+    "typescript-tsx",
+    "typescript-typescript",
+    "yaml",
+
+    "ts-highlight"
+]
+bash = []
+c = []
+cpp = []
+css = []
+d = []
+go = []
+haskell = []
+html = []
+java = []
+javascript = []
+json = []
+lua = []
+python = []
+rust = []
+toml = []
+typescript-tsx = []
+typescript-typescript = []
+yaml = []
+
+ts-highlight = ["tree-sitter-highlight"]
+
+[dependencies]
+tree-sitter = ">= 0.19, < 0.21"
+tree-sitter-highlight = { version = ">= 0.19, < 0.21", optional = true }
+
+[build-dependencies]
+cc = "1"
